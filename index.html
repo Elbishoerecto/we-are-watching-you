@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Te estamos observando</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: black;
+      color: red;
+      margin-top: 20%;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="message">Te estamos observando, </h1>
+  <script>
+    // Obtener nombre de usuario de la URL
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get("user");
+
+    // Mostrar el mensaje personalizado
+    const message = document.getElementById("message");
+    if (user) {
+      message.textContent += user;
+    } else {
+      message.textContent += " Juan sebastian Gomez Barandica";
+    }
+
+    // Reproducir un sonido espeluznante (opcional)
+    const audio = new Audio("https://example.com/creepy-sound.mp3");
+    audio.play().catch(() => console.log("No se pudo reproducir el audio"));
+  </script>
+</body>
+</html>
